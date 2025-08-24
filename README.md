@@ -11,8 +11,12 @@ Os templates estão hospedados em:
 ## 📦 Uso rápido:
 
 ```bash
-npx magg create
-# ou instale globalmente com: npm i -g @devmaggioni/magg-cli
+# instale globalmente
+npm i -g @devmaggioni/magg-cli
+
+# uso:
+magg create # => seleciona as opções
+# npx @devmaggioni/magg-cli create #=> testar sem instalar globalmente
 ```
 
 ---
@@ -26,6 +30,7 @@ git clone https://github.com/devmaggioni/magg-cli.git
 cd magg-cli
 npm install
 npm run build
+# node dist/index.js create
 ```
 
 Opcionalmente, você pode linkar globalmente para usar o comando em qualquer lugar:
