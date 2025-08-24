@@ -1,0 +1,41 @@
+{
+  "type": "module",
+  "name": "@devmaggioni/magg-cli",
+  "version": "1.0.0",
+  "author": "Gabriel Maggioni",
+  "license": "MIT",
+  "description": "Um pequeno utilitário para criar projetos rapidamente",
+  "keywords": [
+    "cli",
+    "template",
+    "project-generator",
+    "typescript"
+  ],
+  "engines": {
+    "node": ">=18"
+  },
+  "files": [
+    "dist"
+  ],
+  "bin": {
+    "magg": "dist/index.js"
+  },
+  "scripts": {
+    "start": "ts-node src/index.ts",
+    "build": "tsc",
+    "nodemon": "nodemon"
+  },
+  "devDependencies": {
+    "@types/inquirer": "^9.0.9",
+    "@types/node": "^24.3.0",
+    "@types/ora": "^3.1.0",
+    "nodemon": "^3.1.10",
+    "ts-node": "^10.9.2",
+    "typescript": "^5.9.2"
+  },
+  "dependencies": {
+    "commander": "^14.0.0",
+    "inquirer": "^12.9.3",
+    "ora": "^8.2.0"
+  }
+}
