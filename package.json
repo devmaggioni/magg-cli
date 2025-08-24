@@ -1,7 +1,7 @@
 {
   "type": "module",
   "name": "@devmaggioni/magg-cli",
-  "version": "1.0.1",
+  "version": "1.0.2",
   "author": "Gabriel Maggioni",
   "license": "MIT",
   "description": "Um pequeno utilitário para criar projetos rapidamente",
