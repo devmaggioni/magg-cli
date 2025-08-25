@@ -77,17 +77,19 @@ async function create(program: Command): Promise<void> {
 
       const command = isWindows
         ? `
-          curl -L https://github.com/devmaggioni/templates/archive/refs/heads/main.zip -o repo.zip;
-          Expand-Archive -Force repo.zip -DestinationPath .;
-          Move-Item -Path "templates-main/${selectedPath}" -Destination "./${dirName.name}";
-          Remove-Item -Recurse -Force templates-main, repo.zip;
-        `
+    $curl = Get-Command curl.exe -ErrorAction SilentlyContinue;
+    if (-not $curl) { throw "O curl real não foi encontrado"; }
+    curl.exe -L https://github.com/devmaggioni/templates/archive/refs/heads/main.zip -o repo.zip;
+    Expand-Archive -Force repo.zip -DestinationPath .;
+    Move-Item -Path "templates-main/${selectedPath}" -Destination "./${dirName.name}";
+    Remove-Item -Recurse -Force templates-main, repo.zip;
+  `
         : `
-          curl -L https://github.com/devmaggioni/templates/archive/refs/heads/main.zip -o repo.zip \
-          && unzip -q repo.zip "templates-main/${selectedPath}/*" \
-          && mv templates-main/${selectedPath} "./${dirName.name}" \
-          && rm -rf templates-main repo.zip
-        `;
+    curl -L https://github.com/devmaggioni/templates/archive/refs/heads/main.zip -o repo.zip \
+    && unzip -q repo.zip "templates-main/${selectedPath}/*" \
+    && mv templates-main/${selectedPath} "./${dirName.name}" \
+    && rm -rf templates-main repo.zip
+  `;
 
       try {
         await execAsync(command, {
